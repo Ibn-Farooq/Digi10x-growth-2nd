@@ -77,7 +77,7 @@ export default function ContactFormSection() {
               onSubmit={handleSubmit}
               className="space-y-6"
             >
-              {/* ✅ Yeh 2 hidden inputs ZAROOR hain */}
+    
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
 
@@ -87,7 +87,7 @@ export default function ContactFormSection() {
                   <input 
                     required
                     type="text"
-                    name="name"  {/* ✅ name attribute */}
+                    name="name"  
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
                     placeholder="M.Ali"
                   />
@@ -97,7 +97,7 @@ export default function ContactFormSection() {
                   <input 
                     required
                     type="email"
-                    name="email"  {/* ✅ name attribute */}
+                    name="email"  
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
                     placeholder="ali@example.com"
                   />
@@ -110,7 +110,7 @@ export default function ContactFormSection() {
                   <input 
                     required
                     type="tel"
-                    name="phone"  {/* ✅ name attribute */}
+                    name="phone"  
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
                     placeholder="+92 300-0000000"
                   />
@@ -119,7 +119,7 @@ export default function ContactFormSection() {
                   <label className="text-sm font-medium text-gray-300">Solution Needed</label>
                   <select 
                     required
-                    name="solution"  {/* ✅ name attribute */}
+                    name="solution"  
                     defaultValue=""
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors appearance-none"
                   >
@@ -135,7 +135,7 @@ export default function ContactFormSection() {
                 <label className="text-sm font-medium text-gray-300">Estimated Budget Range</label>
                 <select 
                   required
-                  name="budget"  {/* ✅ name attribute */}
+                  name="budget"  
                   defaultValue=""
                   className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors appearance-none"
                 >
@@ -151,7 +151,7 @@ export default function ContactFormSection() {
                 <label className="text-sm font-medium text-gray-300">Additional Requirements</label>
                 <textarea 
                   rows={4}
-                  name="message"  {/* ✅ name attribute */}
+                  name="message" 
                   className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors resize-none"
                   placeholder="Tell us about your business goals..."
                 ></textarea>
