@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export default function SectionIndicator() {
   return (
-    <div className="flex justify-center mb-8">
+    <div className="flex justify-center mb-4">
       <motion.div
         className="w-3 h-3 rounded-full"
         animate={{
