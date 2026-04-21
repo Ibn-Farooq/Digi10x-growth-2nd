@@ -33,7 +33,7 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="py-24 relative z-10 bg-tech-blue-light/50">
+    <section id="team" className="py-16 relative z-10 bg-tech-blue-light/50">
       <div className="container mx-auto px-6 md:px-12">
         <SectionIndicator />
         

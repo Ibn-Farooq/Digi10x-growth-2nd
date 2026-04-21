@@ -38,7 +38,7 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10 bg-tech-blue-light/30">
+    <section id="contact" className="py-16 relative z-10 bg-tech-blue-light/30">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <SectionIndicator />
         
