@@ -16,15 +16,25 @@ export default function ContactFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
       setIsSuccess(true);
       setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -46,7 +56,6 @@ export default function ContactFormSection() {
           transition={{ duration: 0.5 }}
           className="bg-tech-blue rounded-3xl p-8 md:p-12 border border-gray-800 shadow-2xl relative overflow-hidden"
         >
-          {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-neon-cyan to-transparent opacity-50" />
           
           {isSuccess ? (
@@ -60,22 +69,35 @@ export default function ContactFormSection() {
               <p className="text-gray-400">We'll be in touch shortly to discuss your growth strategy.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* ✅ Yeh 2 hidden inputs ZAROOR hain */}
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">Full Name</label>
                   <input 
                     required
-                    type="text" 
+                    type="text"
+                    name="name"  {/* ✅ name attribute */}
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
-                    placeholder=" M.Ali"
+                    placeholder="M.Ali"
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-300">Email Address</label>
                   <input 
                     required
-                    type="email" 
+                    type="email"
+                    name="email"  {/* ✅ name attribute */}
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
                     placeholder="ali@example.com"
                   />
@@ -87,7 +109,8 @@ export default function ContactFormSection() {
                   <label className="text-sm font-medium text-gray-300">Phone Number</label>
                   <input 
                     required
-                    type="tel" 
+                    type="tel"
+                    name="phone"  {/* ✅ name attribute */}
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors"
                     placeholder="+92 300-0000000"
                   />
@@ -96,6 +119,7 @@ export default function ContactFormSection() {
                   <label className="text-sm font-medium text-gray-300">Solution Needed</label>
                   <select 
                     required
+                    name="solution"  {/* ✅ name attribute */}
                     defaultValue=""
                     className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors appearance-none"
                   >
@@ -111,6 +135,7 @@ export default function ContactFormSection() {
                 <label className="text-sm font-medium text-gray-300">Estimated Budget Range</label>
                 <select 
                   required
+                  name="budget"  {/* ✅ name attribute */}
                   defaultValue=""
                   className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors appearance-none"
                 >
@@ -126,6 +151,7 @@ export default function ContactFormSection() {
                 <label className="text-sm font-medium text-gray-300">Additional Requirements</label>
                 <textarea 
                   rows={4}
+                  name="message"  {/* ✅ name attribute */}
                   className="w-full bg-tech-blue-light border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-colors resize-none"
                   placeholder="Tell us about your business goals..."
                 ></textarea>
