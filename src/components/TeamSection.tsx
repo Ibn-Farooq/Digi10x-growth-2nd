@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import SectionIndicator from "./SectionIndicator";
 // ✅ Import images from src/images (TS-friendly)
-import umer from '../images/umer.png';
+import umer from '../images/umer2.png';
 import subhan from '../images/subhan.png';
 import ahsan from '../images/ahsan.png';
 // Team array using imported images
@@ -10,7 +10,7 @@ const team = [
   {
     name: "Umer Farooq",
     role: "WordPress & Shopify Expert",
-    image: umer,
+    image: umer2,
     socials: { 
       fb: "https://www.facebook.com/farooq.hassan.916192", 
       insta: "https://www.instagram.com/digi10xgrowth/", 
