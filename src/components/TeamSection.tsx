@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import SectionIndicator from "./SectionIndicator";
 // ✅ Import images from src/images (TS-friendly)
-import umer from '../images/umer2.png';
+import umer2 from '../images/umer2.png';
 import subhan from '../images/subhan.png';
 import ahsan from '../images/ahsan.png';
 // Team array using imported images
